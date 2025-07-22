@@ -145,6 +145,8 @@
 - Retrieve Argo CD admin password:
   ```bash
   kubectl get secret -n argocd argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d && echo
+  [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String((kubectl get secret -n argocd argocd-initial-admin-secret -o jsonpath="{.data.password}")))
+
   ```
 
 
